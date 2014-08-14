@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'reviews/create'
+
+  get 'reviews/show'
+
 get 'login' => 'user_sessions#new', :as => :login
 post 'logout' => 'user_sessions#destroy', :as => :logout
 
