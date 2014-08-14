@@ -11,7 +11,9 @@ root :to => 'projects#index'
 
 resources :user_sessions
 resources :users
-resources :projects, only: [:index, :create, :new]
+resources :projects, only: [:index, :create, :new, :show] do
+  resources :reviews,  only: [:show, :create, :destroy] 
+end
 
 
 

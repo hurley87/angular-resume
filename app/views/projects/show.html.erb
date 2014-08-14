@@ -1,0 +1,32 @@
+
+
+<%= form_for [@project, @review] do |f|  %>
+    <div class="field">
+      <%= f.text_area :body, class: "text-review" %>
+    </div>
+    <span class='r-rating'>
+    <%= f.label :one_star %>
+    <%= f.radio_button 'stars', 1 %>
+    </span>
+    <span class='r-rating'>
+    <%= f.label :two_star %>
+    <%= f.radio_button 'stars', 2 %>
+    </span>
+    <span class='r-rating'>
+    <%= f.label :three_star %>
+    <%= f.radio_button 'stars', 3 %>
+    </span>
+    <span class='r-rating'>
+    <%= f.label :four_star %>
+    <%= f.radio_button 'stars', 4 %>
+    </span>
+    <span class='r-rating'>
+    <%= f.label :five_star %>
+    <%= f.radio_button 'stars', 5 %>
+    </span>
+    <br>
+  <div class="actions">
+    <br>
+      <p><%= f.submit 'Rate', class: 'submit-btn' %></p>
+  </div>
+<% end %>
