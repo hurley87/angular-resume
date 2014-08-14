@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   	respond_to do |format|
       if @review.save
         format.html { redirect_to @project, notice: 'Review created successfully' }
-        format.js {}
+        format.json { render json: @project.reviews }
       else
         format.html {render 'projects/show', notice: 'There was an error'}
         format.js {}
