@@ -1,4 +1,14 @@
-
+<div id='project-show' data-id='<%= @project.id %>' ng-controller='ProjectController as this'>
+    <h1>{{ this.project.name}}</h1>    
+    <h3>{{ this.project.description}}</h3>
+    <h3>{{ this.project.link }}</h3>
+    
+    <h1>Reviews</h1>
+    <div ng-repeat="review in this.project.reviews">
+        <p>{{ review.stars }}</p>
+        <p>{{ review.body }}</p>
+    </div>
+</div>
 
 <%= form_for [@project, @review] do |f|  %>
     <div class="field">
