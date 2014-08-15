@@ -4,7 +4,6 @@ class ReviewsController < ApplicationController
   def create
   	@review = @project.reviews.build(review_params)
   	@review.user = current_user
-
   	respond_to do |format|
       if @review.save
         format.html { redirect_to @project, notice: 'Review created successfully' }
