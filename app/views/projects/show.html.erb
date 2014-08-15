@@ -1,39 +1,24 @@
-<div id='project-show' data-id='<%= @project.id %>' ng-controller='ProjectController as this'>
-    <h1>{{ this.project.name}}</h1>    
-    <h3>{{ this.project.description}}</h3>
-    <h3>{{ this.project.link }}</h3>
+<div id='project-show' data-id='<%= @project.id %>' ng-controller='ProjectController as projectCtrl'>
+    <h1>{{ projectCtrl.project.name}}</h1>    
+    <h3>{{ projectCtrl.project.description}}</h3>
+    <h3>{{ projectCtrl.project.link }}</h3>
     
     <h1>Reviews</h1>
-    <div ng-repeat="review in this.project.reviews">
+    <div ng-repeat="review in projectCtrl.project.reviews">
         <p>{{ review.stars }}</p>
         <p>{{ review.body }}</p>
     </div>
 </div>
 
-<%= form_for [@project, @review] do |f|  %>
+<!-- /projects/:project_id/reviews -->
+
+<%= form_for [@project, @review], :html => { novalidate: '', name: "reviewForm", 'ng-controller' = "ReviewController as reviewCtrl" 'ng-submit' = 'reviewCtrl.addReviews' } do |f|  %>
     <div class="field">
       <%= f.text_area :body, class: "text-review" %>
     </div>
-    <span class='r-rating'>
-    <%= f.label :one_star %>
-    <%= f.radio_button 'stars', 1 %>
-    </span>
-    <span class='r-rating'>
-    <%= f.label :two_star %>
-    <%= f.radio_button 'stars', 2 %>
-    </span>
-    <span class='r-rating'>
-    <%= f.label :three_star %>
-    <%= f.radio_button 'stars', 3 %>
-    </span>
-    <span class='r-rating'>
-    <%= f.label :four_star %>
-    <%= f.radio_button 'stars', 4 %>
-    </span>
-    <span class='r-rating'>
-    <%= f.label :five_star %>
-    <%= f.radio_button 'stars', 5 %>
-    </span>
+    <select ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title='Stars'>
+            <option value>Rate this product.</option>
+          </select>
     <br>
   <div class="actions">
     <br>
