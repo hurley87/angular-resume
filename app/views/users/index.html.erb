@@ -1,12 +1,13 @@
-<h1>Leaderboard</h1>
+
 
 
 <div ng-controller="AppController as app">
+	<h1 class="page-header">Leaderboard</h1>
   <div ng-repeat='user in app.users'>
     <p>{{ user.email }}</p>
   </div>
 </div>
 
-<br>
+<hr>
 
 <%= link_to 'New User', new_user_path %>

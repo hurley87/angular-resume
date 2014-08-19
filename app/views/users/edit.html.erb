@@ -1,4 +1,4 @@
-<h1>Editing user</h1>
+<h1 class='page-header'>Editing Profile</h1>
 
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
@@ -13,23 +13,28 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
    <%= f.label :password %><br />
-   <%= f.password_field :password %>
+   <%= f.password_field :password, class: 'form-control' %>
 </div>
-<div class="field">
+<div class="form-group">
    <%= f.label :password_confirmation %><br />
-   <%= f.password_field :password_confirmation %>
+   <%= f.password_field :password_confirmation, class: 'form-control' %>
 </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-
+<br>
+<style type="text/css">
+  .form-control {
+   width: 25%;
+}
+</style>
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>

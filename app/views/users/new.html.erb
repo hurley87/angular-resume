@@ -1,9 +1,8 @@
-<h1>New user</h1>
-<%= form_for @user, :html => { novalidate: '', name: "newUser"} do |f| %>
+<h1 class="page-header">Sign Up</h1>
+<%= form_for @user, :html => { novalidate: '', name: "newUser", role: 'form'} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %><br>
-    <%= f.text_field :email, :'ng-model'=>'userCtrl.email', :type=>'email', :'required'=>'', :unique=>'' %>
+    <%= f.text_field :email, :'ng-model'=>'userCtrl.email', :type=>'email', :'required'=>'', :unique=>'', class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
    <%= f.label :password %><br />
-   <%= f.password_field :password, :'ng-model'=>'userCtrl.password', :type=>'password', :'required'=>'' %>
+   <%= f.password_field :password, :'ng-model'=>'userCtrl.password', :type=>'password', :'required'=>'', class: 'form-control' %>
 </div>
-<div class="field">
+<div class="form-group">
    <%= f.label :password_confirmation %><br />
-   <%= f.password_field :password_confirmation, :'ng-model'=>'userCtrl.password_confirmation', :type=>'password', :'required'=>'', :value => '' %>
+   <%= f.password_field :password_confirmation, :'ng-model'=>'userCtrl.password_confirmation', :type=>'password', :'required'=>'', :value => '', class: 'form-control' %>
 </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create', class: 'btn btn-default' %>
   </div>
 <% end %>
-
+<br>
 <script type="text/javascript">
 	
 // password match
@@ -49,12 +48,16 @@
 
 <style type="text/css">
 	
-	.ng-invalid.ng-dirty {
+.ng-invalid.ng-dirty {
     border-color: red; 
 }
 
 .ng-valid.ng-dirty {
     border-color: green; 
+}
+
+.form-control {
+   width: 25%;
 }
 </style>
 
