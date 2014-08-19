@@ -1,16 +1,32 @@
-<div ng-controller="UsersController as app">
-	<h1 class="page-header">Leaderboard</h1>
-  <div ng-repeat='user in app.users'>
-    <p>{{ user.email }}</p>
-  </div>
-</div>
+<div class='row-fluid'>
+	<div class='col-md-4'>
+		<div ng-controller="UsersController as app">
+			<h1 class="page-header">Leaderboard</h1>
+		  <div ng-repeat='user in app.users'>
+		    <p>{{ user.email }}</p>
+		  </div>
+		</div>
+	</div>
 
 
-<div ng-controller="ProjectsController as index">
-	<h1 class="page-header">Projects</h1>
-  <div ng-repeat='project in index.projects'>
-  	<h2>what</h2>
-    <p>{{ project.name }}</p>
-  	<p></p>
-  </div>
+<div class='col-md-8'>
+	<div ng-controller="ProjectsController as index">
+		<h1 class="page-header">Projects</h1>
+	  <div id="masonry-container" class="transitions-enabled clearfix" ng-repeat='project in index.projects'>
+	  	<div class='box'>
+		    <p>{{ project.name }}</p>
+		    <p>{{ project.short }}</p>
+	    </div>
+	  </div>
+	</div>
 </div>
+
+<style type="text/css">
+	
+	.box {
+		height: 250px;
+		width: 250px;
+		color: red;
+	}
+
+</style>

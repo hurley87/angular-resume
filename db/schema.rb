@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814221421) do
+ActiveRecord::Schema.define(version: 20140819150159) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140814221421) do
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "short"
   end
 
   create_table "reviews", force: true do |t|
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140814221421) do
     t.string   "salt",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "short"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -2,7 +2,7 @@
 var app = angular.module('angularResume', ['ui.bootstrap']);
 
  
-  app.controller('UsersController', ['$http', function($http) {
+app.controller('UsersController', ['$http', function($http) {
   var app = this;
   app.users = [];
   $http.get('/users.json').success(function(data){

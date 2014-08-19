@@ -15,5 +15,6 @@
 //= require angular
 //= require angular-ui-bootstrap
 //= require jquery
+//= require masonry/jquery.masonry
 //= require bootstrap-sprockets
 //= require_tree .

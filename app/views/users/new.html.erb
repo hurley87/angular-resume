@@ -32,11 +32,10 @@
 	
 // password match
 	$(document).ready(function() {
+    $('#user_password_confirmation').css({'border-color': 'red'});
 		$('#user_password_confirmation').on('input', function(){
 				var password = $('#user_password').val();
 				var confirm = $(this).val();
-				console.log(password);
-				console.log(confirm);
 				if(password != confirm) {
 					$(this).css({'border-color': 'red'});
 				} else {
