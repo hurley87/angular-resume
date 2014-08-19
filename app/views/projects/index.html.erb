@@ -1,8 +1,16 @@
-
-
-<div ng-controller="AppController as app">
-	<h1 class="page-header">Projects</h1>
+<div ng-controller="UsersController as app">
+	<h1 class="page-header">Leaderboard</h1>
   <div ng-repeat='user in app.users'>
     <p>{{ user.email }}</p>
+  </div>
+</div>
+
+
+<div ng-controller="ProjectsController as index">
+	<h1 class="page-header">Projects</h1>
+  <div ng-repeat='project in index.projects'>
+  	<h2>what</h2>
+    <p>{{ project.name }}</p>
+  	<p></p>
   </div>
 </div>
