@@ -2,8 +2,11 @@
 	<div class='col-md-4'>
 		<div ng-controller="UsersController as app">
 			<h1 class="page-header">Leaderboard</h1>
-		  <div ng-repeat='user in app.users'>
-		    <p>{{ user.email }}</p>
+		  <div ng-repeat='user in app.users | orderBy:"time":reverse'>
+		  	<div ng-show='{{ user.time }}'>
+		    <p>{{ user.name }}<span class='pull-right'>{{ user.time }}</span></p>
+		    <p></p>
+		    </div>
 		  </div>
 		</div>
 	</div>

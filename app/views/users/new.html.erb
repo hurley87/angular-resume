@@ -20,6 +20,10 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :time, 
+                     :'ng-model'=> 'userCtrl.time', 
+                     :value => 0 %>
+
   <div class="form-group">
     <%= f.label :email %><br>
     <%= f.text_field :email, 

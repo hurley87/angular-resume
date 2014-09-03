@@ -1,13 +1,9 @@
 <br>
 <br>
 <%= link_to 'Back', root_path %>
-<h1 class='page-header'>Editing Profile</h1>
 
 <%= form_for @user, 
-             :html => { 
-              novalidate: '', 
-              name: "editUser", 
-              role: 'form'} do |f| %>
+             :html => { name: "editUser" } do |f| %>
 
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -21,6 +17,25 @@
     </div>
   <% end %>
 
+  <div ng-controller="ClockController">
+      <h1 class='page-header'>Click the Circles! 
+      <span class='pull-right'>{{ clock }}</span>
+      </h1>
+       <%= f.hidden_field :time, 
+                          :'ng-model'=> 'editUser.time', 
+                          :value => "{{ clock }}" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :name, 'Username' %><br>
+    <%= f.text_field :name, 
+                     :'ng-model'=> 'editUser.name', 
+                     :minlength => 2,
+                     :maxlength => 20,
+                     :'required'=>'', 
+                     class: 'form-control' %>
+  </div>
   <div class="form-group">
     <%= f.label :email %><br>
     <%= f.text_field :email, 
@@ -46,21 +61,15 @@
    <%= f.label :password_confirmation %><br />
    <%= f.password_field :password_confirmation, 
                         :'ng-model'=>'editUser.password_confirmation', 
-                        :type=>'password', :'required'=>'', 
+                        :type=>'password', 
+                        :'required'=>'', 
                         :value => '',
                         class: 'form-control' %>
 </div>
   <div class="actions">
-    <%= f.submit 'Sign Up', 
+    <%= f.submit 'Finish', 
                 class: 'btn btn-default',
                 'ng-disabled' => 'editUser.$invalid' %>
   </div>
 <% end %>
-<br>
-<style type="text/css">
-  .form-control {
-   width: 25%;
-}
-</style>
-
 

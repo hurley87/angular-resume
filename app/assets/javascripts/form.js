@@ -17,3 +17,18 @@
         app.projects = data;
     });
   }]);
+
+  app.controller('ClockController', ['$scope', function($scope) {
+      $scope.clock = 0;
+
+      var updateClock = function() {
+        $scope.clock += 10;
+      };
+
+      setInterval(function() {
+        $scope.$apply(updateClock);
+      }, 1000);
+
+      updateClock();
+  }]);
+
