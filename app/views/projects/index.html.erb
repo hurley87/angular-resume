@@ -12,7 +12,7 @@
 <div class='col-md-8'>
 	<div ng-controller="ProjectsController as index">
 		<h1 class="page-header">Projects</h1>
-	  <div id="masonry-container" class="transitions-enabled clearfix" ng-repeat='project in index.projects'>
+	  <div class="row" ng-repeat='project in index.projects'>
 	  	<div class='box'>
 		    <p>{{ project.name }}</p>
 		    <p>{{ project.short }}</p>
@@ -24,9 +24,11 @@
 <style type="text/css">
 	
 	.box {
-		height: 250px;
-		width: 250px;
+		height: 150px;
+		width: 100%;
 		color: red;
+		float: left;
+		display: inline-block;
 	}
 
 </style>
