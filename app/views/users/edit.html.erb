@@ -1,6 +1,14 @@
+<br>
+<br>
+<%= link_to 'Back', root_path %>
 <h1 class='page-header'>Editing Profile</h1>
 
-<%= form_for(@user) do |f| %>
+<%= form_for @user, 
+             :html => { 
+              novalidate: '', 
+              name: "editUser", 
+              role: 'form'} do |f| %>
+
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -15,18 +23,37 @@
 
   <div class="form-group">
     <%= f.label :email %><br>
-    <%= f.text_field :email, class: 'form-control' %>
+    <%= f.text_field :email, 
+                     :'ng-model'=> 'editUser.email', 
+                     :type=> 'email', 
+                     :minlength => 2,
+                     :maxlength => 20,
+                     :placeholder => 'Email',
+                     :'required'=>'', 
+                     :unique => '', 
+                     class: 'form-control' %>
   </div>
   <div class="form-group">
    <%= f.label :password %><br />
-   <%= f.password_field :password, class: 'form-control' %>
+   <%= f.password_field :password, 
+                        :'ng-model'=>'editUser.password', 
+                        :type=>'password', 
+                        :placeholder => 'Password',
+                        :'required'=>'', 
+                        class: 'form-control' %>
 </div>
 <div class="form-group">
    <%= f.label :password_confirmation %><br />
-   <%= f.password_field :password_confirmation, class: 'form-control' %>
+   <%= f.password_field :password_confirmation, 
+                        :'ng-model'=>'editUser.password_confirmation', 
+                        :type=>'password', :'required'=>'', 
+                        :value => '',
+                        class: 'form-control' %>
 </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Sign Up', 
+                class: 'btn btn-default',
+                'ng-disabled' => 'editUser.$invalid' %>
   </div>
 <% end %>
 <br>
@@ -36,5 +63,4 @@
 }
 </style>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+
