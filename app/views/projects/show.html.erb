@@ -8,13 +8,14 @@
         <p>{{ review.stars }}</p>
         <p>{{ review.body }}</p>
     </div>
+    <p>{{body}}</p>
 </div>
 
 <h3 class='page-header'>Add Review</h3>
 <!-- /projects/:project_id/reviews -->
 
 <%= form_for [@project, @review], :html => { novalidate: '', name: "reviewForm"}  do |f|  %>
-    <p>{{body}}</p>
+
     <div class="field">
       <%= f.text_area :body, 
                       class: "text-review",
