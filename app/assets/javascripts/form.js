@@ -44,6 +44,29 @@
 
   }]);
 
+  app.directive('focus',
+    function($timeout) {
+      return {
+        scope : {
+
+         trigger : '@focus'
+
+         },
+        link : function(scope, element) {
+          scope.$watch('trigger', function(value) {
+            if (value === "true") {
+             $timeout(function() { 
+                element[0].focus();
+             });
+            }
+           });
+         }
+        };
+     }
+
+  ); 
+    
+
   $(document).ready(function() {
       // hide skill circle when user clicks them
       $('.circle').on('click', function() {
