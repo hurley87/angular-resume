@@ -21,20 +21,18 @@
   }]);
 
   //counter that counts up by 1 per second
-  app.controller('ClockController', ['$scope', function($scope) {
+  app.controller('SkillsController', ['$scope', function($scope) {
       $scope.clock = 10;
 
       var updateClock = function() {
         $scope.clock += 1;
       };
-
       setInterval(function() {
         $scope.$apply(updateClock);
       }, 1000);
-
       updateClock();
 
-
+      // each t
       $scope.hits = 0;
 
       $scope.addHit = function() {
@@ -66,7 +64,7 @@
 
   ); 
     
-
+  //i used some jquery just for effect - need to figure out a way to do this in angular
   $(document).ready(function() {
       // hide skill circle when user clicks them
       $('.circle').on('click', function() {

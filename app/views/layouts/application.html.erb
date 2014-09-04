@@ -17,13 +17,7 @@
         <h3 class='navbar-text navbar-right'>
           <%= link_to "Logout", :logout, method: :post, class: 'navbar-brand' %>
         </h3>
-        <h3 class='navbar-text navbar-right'>
-          <%= link_to "Play Game", edit_user_path(current_user.id), class: 'navbar-brand' %>
-        </h3>
         <% else %>
-        <h3 class='navbar-text navbar-right'>
-          <%= link_to "Register", new_user_path, class: 'navbar-brand' %>
-        </h3>
         <h3 class='navbar-text navbar-right'>
           <%= link_to "Login", :login, class: 'navbar-brand' %>
         </h3>
