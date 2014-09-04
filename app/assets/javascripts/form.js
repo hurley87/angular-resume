@@ -20,6 +20,17 @@
     });
   }]);
 
+  //call data on specifc project I've created on the site
+  app.controller('ProjectController', ['$http', function($http) {
+    var id = $('#projecty').data('id');
+    var app = this;
+    app.project = [];
+    $http.get('/projects/'+id+'.json').success( function(data){
+          app.project = data;
+
+    });
+  }]);
+
   //counter that counts up by 1 per second
   app.controller('SkillsController', ['$scope', function($scope) {
       $scope.clock = 10;
@@ -63,6 +74,7 @@
      }
 
   ); 
+
     
   //i used some jquery just for effect - need to figure out a way to do this in angular
   $(document).ready(function() {

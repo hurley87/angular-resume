@@ -1,27 +1,50 @@
-<div id='project-show' data-id='<%= @project.id %>' ng-controller='ProjectController as projectCtrl'>
-    <h1>{{ projectCtrl.project.name}}</h1>    
-    <h3>{{ projectCtrl.project.description}}</h3>
-    <h3>{{ projectCtrl.project.link }}</h3>
+<div id='projecty' data-id='<%= @project.id %>' ng-controller='ProjectController as projectCtrl'>
+    <h1>{{ projectCtrl.project.project.name}}</h1>    
+    <h3>{{ projectCtrl.project.project.description}}</h3>
+    <h3><a href="{{ projectCtrl.project.project.link }}">Visit Website</a></h3>
     
-    <h1>Reviews</h1>
-    <div ng-repeat="review in projectCtrl.project.reviews">
+    <h1 class='page-header'>Reviews</h1>
+    <div ng-repeat="review in projectCtrl.project.project.review">
         <p>{{ review.stars }}</p>
         <p>{{ review.body }}</p>
     </div>
 </div>
 
+<h3 class='page-header'>Add Review</h3>
 <!-- /projects/:project_id/reviews -->
 
 <%= form_for [@project, @review], :html => { novalidate: '', name: "reviewForm"}  do |f|  %>
+    <p>{{body}}</p>
     <div class="field">
-      <%= f.text_area :body, class: "text-review" %>
+      <%= f.text_area :body, 
+                      class: "text-review",
+                      'ng-model' => 'body' %>
     </div>
-    <select ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title='Stars'>
-            <option value>Rate this product.</option>
-          </select>
     <br>
+    <div class='form-group'>
+      <span class='r-rating'>
+    <%= f.label :one_star %>
+    <%= f.radio_button 'stars', 1 %>
+    </span>
+    <span class='r-rating'>
+    <%= f.label :two_star %>
+    <%= f.radio_button 'stars', 2 %>
+    </span>
+    <span class='r-rating'>
+    <%= f.label :three_star %>
+    <%= f.radio_button 'stars', 3 %>
+    </span>
+    <span class='r-rating'>
+    <%= f.label :four_star %>
+    <%= f.radio_button 'stars', 4 %>
+    </span>
+    <span class='r-rating'>
+    <%= f.label :five_star %>
+    <%= f.radio_button 'stars', 5 %>
+    </span>
+    </div>
   <div class="actions">
     <br>
-      <p><%= f.submit 'Rate', class: 'submit-btn' %></p>
+      <p><%= f.submit 'Submit Review', class: 'submit-btn' %></p>
   </div>
 <% end %>

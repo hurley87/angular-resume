@@ -7,7 +7,7 @@
       <% else %>
           <p class='text-center'><%= link_to "Register", new_user_path, class: 'btn btn-default' %></p>
         <% end %>
-		  <div ng-repeat='user in app.users | orderBy:"time":reverse'>
+		  <div ng-repeat='user in app.users | limitTo:5 | orderBy:"time":reverse'>
 		  	<div ng-show='{{ user.time }}'>
 		    <p>{{ user.name }}<span class='pull-right'>{{ user.time }}</span></p>
 		    <p></p>
@@ -20,7 +20,7 @@
 		<div ng-controller="ProjectsController as index">
 			<h1 class="page-header">Projects</h1>
 			<input type="text" ng-model="search" focus="true" class='form-control'>
-		  <div class="row" ng-animate="'animate'" ng-repeat='project in index.projects | filter:search'>
+		  <div class="row" ng-animate="'animate'" ng-repeat='project in index.projects | filter:search' >
 		  	<div class='box'>
 			    <h1><a href="projects/{{project.id}}">{{ project.name }}</a></h1>
 			    <p>{{ project.short }}</p>
