@@ -35,6 +35,20 @@
     margin-top: 70px;
   }
 
+.circle {
+	background-color: #2ecc71;
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+	border-radius: 75px;
+	position: relative;
+} 
+
+.circle p {
+	line-height: 150px;
+	text-align: center;
+} 
+
 .box {
 	height: 150px;
 	width: 100%;

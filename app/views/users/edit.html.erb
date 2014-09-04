@@ -24,52 +24,66 @@
        <%= f.hidden_field :time, 
                           :'ng-model'=> 'editUser.time', 
                           :value => "{{ clock }}" %>
-  </div>
+
+      <div ng-click="addHit()" class='circle'><p>Rails</p></div>
+      <div ng-click="addHit()" class='circle'><p>Ruby</p></div>
+      <div ng-click="addHit()" class='circle'><p>AJAX</p></div>
+      <div ng-click="addHit()" class='circle'><p>jQuery</p></div>
+      <div ng-click="addHit()" class='circle'><p>Agile</p></div>
+      <div ng-click="addHit()" class='circle'><p>Angular</p></div>  
+   
 
 
-  <div class="form-group">
-    <%= f.label :name, 'Username' %><br>
-    <%= f.text_field :name, 
-                     :'ng-model'=> 'editUser.name', 
-                     :minlength => 2,
-                     :maxlength => 20,
-                     :'required'=>'', 
-                     class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, 
-                     :'ng-model'=> 'editUser.email', 
-                     :type=> 'email', 
-                     :minlength => 2,
-                     :maxlength => 20,
-                     :placeholder => 'Email',
-                     :'required'=>'', 
-                     :unique => '', 
-                     class: 'form-control' %>
-  </div>
-  <div class="form-group">
-   <%= f.label :password %><br />
-   <%= f.password_field :password, 
-                        :'ng-model'=>'editUser.password', 
-                        :type=>'password', 
-                        :placeholder => 'Password',
-                        :'required'=>'', 
-                        class: 'form-control' %>
-</div>
-<div class="form-group">
-   <%= f.label :password_confirmation %><br />
-   <%= f.password_field :password_confirmation, 
-                        :'ng-model'=>'editUser.password_confirmation', 
-                        :type=>'password', 
-                        :'required'=>'', 
-                        :value => '',
-                        class: 'form-control' %>
-</div>
-  <div class="actions">
-    <%= f.submit 'Finish', 
-                class: 'btn btn-default',
-                'ng-disabled' => 'editUser.$invalid' %>
-  </div>
+      <div ng-show='hits == 6'>
+        <div class="form-group">
+          <%= f.label :name, 'Username' %><br>
+          <%= f.text_field :name, 
+                           :'ng-model'=> 'editUser.name', 
+                           :minlength => 2,
+                           :maxlength => 20,
+                           :'required'=>'', 
+                           class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %><br>
+          <%= f.text_field :email, 
+                           :'ng-model'=> 'editUser.email', 
+                           :type=> 'email', 
+                           :minlength => 2,
+                           :maxlength => 20,
+                           :placeholder => 'Email',
+                           :'required'=>'', 
+                           :unique => '', 
+                           class: 'form-control' %>
+        </div>
+        <div class="form-group">
+         <%= f.label :password %><br />
+         <%= f.password_field :password, 
+                              :'ng-model'=>'editUser.password', 
+                              :type=>'password', 
+                              :placeholder => 'Password',
+                              :'required'=>'', 
+                              class: 'form-control' %>
+      </div>
+      <div class="form-group">
+         <%= f.label :password_confirmation %><br />
+         <%= f.password_field :password_confirmation, 
+                              :'ng-model'=>'editUser.password_confirmation', 
+                              :type=>'password', 
+                              :'required'=>'', 
+                              :value => '',
+                              class: 'form-control' %>
+      </div>
+        <div class="actions">
+          <%= f.submit 'Finish', 
+                      class: 'btn btn-default',
+                      'ng-disabled' => 'editUser.$invalid' %>
+        </div>
+      </div>
+  </div>  
 <% end %>
+
+<script type="text/javascript">
+   
+</script>
 

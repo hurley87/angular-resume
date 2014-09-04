@@ -12,7 +12,7 @@
 
 <!-- /projects/:project_id/reviews -->
 
-<%= form_for [@project, @review]  do |f|  %>
+<%= form_for [@project, @review], :html => { novalidate: '', name: "reviewForm"}  do |f|  %>
     <div class="field">
       <%= f.text_area :body, class: "text-review" %>
     </div>
