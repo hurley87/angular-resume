@@ -3,9 +3,9 @@
 		<div ng-controller="UsersController as app">
 			<h1 class="page-header">Leaderboard</h1>
 			<% if current_user %>
-        <p class='text-center'><%= link_to "Play Game", edit_user_path(current_user.id), class: 'btn btn-default' %></p>
+        <p><%= link_to "Play Game", edit_user_path(current_user.id), class: 'btn btn-default' %></p>
       <% else %>
-          <p class='text-center'><%= link_to "Register", new_user_path, class: 'btn btn-default' %></p>
+          <p><%= link_to "Register", new_user_path, class: 'btn btn-default' %></p>
         <% end %>
 		  <div ng-repeat='user in app.users | limitTo:5 | orderBy:"time":reverse'>
 		  	<div ng-show='{{ user.time }}'>
