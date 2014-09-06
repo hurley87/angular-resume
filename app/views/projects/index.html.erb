@@ -10,7 +10,6 @@
 		  <div ng-repeat='user in app.users | limitTo:5 | orderBy:"time":reverse'>
 		  	<div ng-show='{{ user.time }}'>
 		    <p>{{ user.name }}<span class='pull-right'>{{ user.time }}</span></p>
-		    <p></p>
 		    </div>
 		  </div>
 		</div>
@@ -19,13 +18,44 @@
 	<div class='col-md-8'>
 		<div ng-controller="ProjectsController as index">
 			<h1 class="page-header">Projects</h1>
-			<input type="text" ng-model="search" focus="true" class='form-control'>
+			<p>Project Search<input type="text" ng-model="search" focus="true" class='form-control'></p>
+				<div class='pull-right'>
+					<button ng-click='show(all)' class='btn btn-default'>All</button>
+					<button ng-click='show(angular)' class='btn btn-default'>Angular</button>
+					<button ng-click='show(finished)' class='btn btn-default'>Finished</button>
+				</div>
 		  <div class="row" ng-animate="'animate'" ng-repeat='project in index.projects | filter:search' >
 		  	<div class='box'>
-			    <h1><a href="projects/{{project.id}}">{{ project.name }}</a></h1>
+		  		<h1><a href="projects/{{project.id}}">{{ project.name }}</a></h1>
+		  		<button ng-show='project.angular' class="btn btn-success pull-right" data-toggle="modal" data-target="#myModal">
+					  Angular
+					</button>
+			    
 			    <p>{{ project.short }}</p>
+			    <p ng-show='project.finished'>Finished</p>
 		    </div>
-		  </div>
+		  
+					  <!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					        <h4 class="modal-title" id="myModalLabel">{{ project.name }}</h4>
+					      </div>
+					      <div class="modal-body">
+									
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        <button type="button" class="btn btn-primary">Save changes</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+	
+

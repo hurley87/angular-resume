@@ -12,12 +12,17 @@
   }]);
 
   //all projects I've created on the site
-  app.controller('ProjectsController', ['$http', function($http) {
+  app.controller('ProjectsController', ['$http','$scope', function($http, $scope) {
     var app = this;
     app.projects = [];
     $http.get('/projects.json').success( function(data){
         app.projects = data;
     });
+
+    $scope.show = function(option) {
+        alert(option);
+    }
+    
   }]);
 
   //call data on specifc project I've created on the site
@@ -26,30 +31,28 @@
     var app = this;
     app.project = [];
     $http.get('/projects/'+id+'.json').success( function(data){
-          app.project = data;
-
+      app.project = data;
     });
   }]);
 
   //counter that counts up by 1 per second
   app.controller('SkillsController', ['$scope', function($scope) {
-      $scope.clock = 10;
+    $scope.clock = 10;
 
-      var updateClock = function() {
-        $scope.clock += 1;
-      };
-      setInterval(function() {
-        $scope.$apply(updateClock);
-      }, 1000);
-      updateClock();
+    var updateClock = function() {
+      $scope.clock += 1;
+    };
+    setInterval(function() {
+      $scope.$apply(updateClock);
+    }, 1000);
+    updateClock();
 
-      // each t
-      $scope.hits = 0;
+    $scope.hits = 0;
 
-      $scope.addHit = function() {
-        $scope.hits = $scope.hits + 1;
-        return false;
-      };
+    $scope.addHit = function() {
+      $scope.hits = $scope.hits + 1;
+      return false;
+    };
 
   }]);
 
@@ -57,22 +60,19 @@
     function($timeout) {
       return {
         scope : {
-
          trigger : '@focus'
-
          },
         link : function(scope, element) {
           scope.$watch('trigger', function(value) {
             if (value === "true") {
-             $timeout(function() { 
+              $timeout(function() { 
                 element[0].focus();
-             });
+              });
             }
-           });
-         }
-        };
-     }
-
+          });
+        }
+      };
+    }
   ); 
 
     
@@ -80,7 +80,7 @@
   $(document).ready(function() {
       // hide skill circle when user clicks them
       $('.circle').on('click', function() {
-          $(this).hide();
+        $(this).hide();
       });
 
       //animate cirlce side to side to its tough for the user to click on them

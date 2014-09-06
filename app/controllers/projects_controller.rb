@@ -26,12 +26,23 @@ class ProjectsController < ApplicationController
     @review = @project.reviews.build
   end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
   def update
+    @project = Project.find(params[:id])
+
+    if @project.update(project_params)
+      redirect_to projects_path
+    else
+      :edit
+    end
   end
 
   private
 
   def project_params
-  	params.require(:project).permit(:name, :short, :description, :link)
+  	params.require(:project).permit(:name, :short, :description, :link, :finished, :angular)
   end
 end
