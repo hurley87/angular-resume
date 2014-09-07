@@ -16,26 +16,41 @@
     var app = this;
     app.projects = [];
     $http.get('/projects.json').success( function(data){
-        app.projects = data;
+      app.projects = data;
+
+      for (var i=0; i < app.projects.length; i++) {
+        var date1 = new Date(app.projects[i].start_date);
+        var date2 = new Date(app.projects[i].end_date);
+        var timeDiff = date2.getTime() - date1.getTime();
+        app.projects[i].daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        if (app.projects[i].daysLeft <= 0 ) {
+          app.projects[i].finished = true;
+          app.projects[i].projectType = 'finished';
+        } else if (app.projects[i].angular) {
+          app.projects[i].projectType = 'angular';
+        } else {
+          app.projects[i].projectType = 'other';
+        }
+      }
     });
 
-    $scope.showProject = true;
-    $scope.projectType = 'finished';
-    
+    // set up categories based on project type
+    $scope.projectType = 'angular';
+
     $scope.show = function(option) {
-        switch(option) {
-          case 'all':
-            $scope.showProject = true;
-            break;
-          case 'finished':
-            $scope.projectType = 'finished';
-            break;
-          case 'angular':
-            $scope.projectType = 'angular';
-            break;
-          default: 
-            alert('hey');      
-        }
+      switch(option) {
+        case 'all':
+          $scope.projectType = 'other';
+          break;
+        case 'finished':
+          $scope.projectType = 'finished';
+          break;
+        case 'angular':
+          $scope.projectType = 'angular';
+          break;
+        default: 
+          alert('hey');      
+      }
     }
     
   }]);

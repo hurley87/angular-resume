@@ -15,10 +15,15 @@
 
 	<%= f.label :angular %>
 	<%= f.check_box :angular %>
+	<p>
+	<%= f.label :start_date %>
+  <%= f.date_select :start_date %>
+	</p>
 
-	<%= f.label :finished %>
-	<%= f.check_box :finished %>
-
+	<p>
+	<%= f.label :end_date %>
+  <%= f.date_select :end_date %>s
+	</p>
 	<%= f.submit %>
 
 <% end %>
