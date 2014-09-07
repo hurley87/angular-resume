@@ -19,8 +19,23 @@
         app.projects = data;
     });
 
+    $scope.showProject = true;
+    $scope.projectType = 'finished';
+    
     $scope.show = function(option) {
-        alert(option);
+        switch(option) {
+          case 'all':
+            $scope.showProject = true;
+            break;
+          case 'finished':
+            $scope.projectType = 'finished';
+            break;
+          case 'angular':
+            $scope.projectType = 'angular';
+            break;
+          default: 
+            alert('hey');      
+        }
     }
     
   }]);
