@@ -1,0 +1,59 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.ng-invalid.ng-dirty {
+    border-color: red; 
+}
+
+.ng-valid.ng-dirty {
+    border-color: green; 
+}
+
+.form-control {
+   width: 25%;
+}
+
+.content {
+    margin-top: 70px;
+  }
+
+.circle {
+	background-color: #2ecc71;
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+	border-radius: 75px;
+	position: relative;
+} 
+
+.circle p {
+	line-height: 150px;
+	text-align: center;
+} 
+
+.box {
+	height: 150px;
+	width: 100%;
+	float: left;
+	display: inline-block;
+	padding: 20px;
+}
+
+
+.calcButtons button{
+		background-color: white;
+		width: 60px;
+		height: 50px;
+}
+
+.calcOutput {
+	background-color: black;
+	color: white;
+	padding: 15px;
+	font-size: 2em;
+	position: relative;
+	right: 5px;
+	height: 40px;
+	width: 325px;
+
+}
