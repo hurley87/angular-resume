@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   root :to => 'projects#index'
-
+  get 'projects/calculator'
   resources :user_sessions
   resources :users
   resources :projects do

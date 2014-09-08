@@ -57,14 +57,10 @@
 	padding: 20px;
 }
 
-.calcButtons {
-		width: 50%;
-		margin: auto;
-}
 
 .calcButtons button{
 		background-color: white;
-		width: 18%;
+		width: 60px;
 		height: 50px;
 }
 
@@ -76,5 +72,6 @@
 	position: relative;
 	right: 5px;
 	height: 40px;
+	width: 325px;
 
 }
