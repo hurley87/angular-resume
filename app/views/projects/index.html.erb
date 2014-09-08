@@ -26,9 +26,6 @@
 				</div>
 		  <div class="row" ng-animate="'animate'" ng-repeat='project in index.projects | filter:search'>
 		  	<div ng-hide='project.projectType != projectType' class='box'>
-		  		<button ng-show='project.angular' class="btn btn-default" data-toggle="modal" data-target="#myModal">
-					  {{project.name}}
-					</button>
 			    <button class='btn btn-default' ng-hide='project.angular'>
 			    	<a href="projects/{{project.id}}">{{ project.name }}</a>
 			    </button>
@@ -36,9 +33,16 @@
 			    <p>{{ project.short }}</p>
 			    <p ng-hide='project.finished'>Started on {{project.start_date | date:'longDate' }}  ({{ project.daysLeft }} days left).</p>
 			    <p ng-show='project.finished'>Finished</p>
-		    </div>
-					  <!-- Modal -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    </div>	
+			</div>
+		</div>
+	</div>
+</div>
+<button ng-show='project.angular' class="btn btn-default" data-toggle="modal" data-target="#myModal">
+					  {{project.name}}
+					</button>	
+  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				  <div class="modal-dialog">
 				    <div class="modal-content">
 				      <div class="modal-header">
@@ -54,9 +58,3 @@
 				    </div>
 				  </div>
 				</div>
-			</div>
-		</div>
-	</div>
-</div>
-	
-
