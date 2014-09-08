@@ -1,6 +1,6 @@
 
 
-  var app = angular.module('angularResume', ['ngMessages']);
+  var app = angular.module('angularResume', []);
 
   //all users who sign up for the site 
   app.controller('UsersController', ['$http', function($http) {
