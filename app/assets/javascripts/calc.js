@@ -23,19 +23,18 @@ function Calc($scope) {
     $scope.add = function () {
         $scope.performOperation();
       	$scope.pendingOperation = '+';
-      	$scope.newNumber = true;
+      	
     }
 
     $scope.subtract = function () {
       $scope.performOperation();
       $scope.pendingOperation = '-';
-      $scope.newNumber = true;
+      
     }
 
     $scope.multiply = function() {
       $scope.performOperation();
       $scope.pendingOperation = '*';
-      $scope.newNumber = true;
     }
 
     $scope.calculate = function() {
@@ -45,7 +44,7 @@ function Calc($scope) {
     $scope.devide = function() {
     	$scope.performOperation();
     	$scope.pendingOperation = '/';
-    	$scope.newNumber = true;
+    
     }
 
     $scope.clear = function() {
@@ -53,23 +52,26 @@ function Calc($scope) {
     }
 
     $scope.performOperation = function() {
-    	switch($scope.pendingOperation) {
-        case '+':
-            $scope.runningTotal += $scope.pendingValue;
-            break;
-        case '-': 
-            $scope.runningTotal -= $scope.pendingValue;
-            break; 
-        case '*':
-            $scope.runningTotal *= $scope.pendingValue;
-            break;  
-        case '/':
-            $scope.runningTotal /= $scope.pendingValue;
-            break;     
-        default:
-            $scope.runningTotal = $scope.pendingValue;    
-        
-      }
+
+    	if($scope.pendingValue) {
+	    	switch($scope.pendingOperation) {
+	        case '+':
+	            $scope.runningTotal += $scope.pendingValue;
+	            break;
+	        case '-': 
+	            $scope.runningTotal -= $scope.pendingValue;
+	            break; 
+	        case '*':
+	            $scope.runningTotal *= $scope.pendingValue;
+	            break;  
+	        case '/':
+	            $scope.runningTotal /= $scope.pendingValue;
+	            break;     
+	        default:
+	            $scope.runningTotal = $scope.pendingValue;    
+	        
+	      }
+    	}
 
       $scope.output = String($scope.runningTotal);
       $scope.newNumber = true;
