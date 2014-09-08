@@ -71,7 +71,7 @@ function Calc($scope) {
 	            $scope.runningTotal = $scope.pendingValue;    
 	        
 	      }
-    	}
+    	} 
 
       $scope.output = String($scope.runningTotal);
       $scope.newNumber = true;
