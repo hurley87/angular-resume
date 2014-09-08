@@ -25,6 +25,9 @@
 					<button ng-click='show("all")' class='btn btn-default'>Other</button>
 				</div>
 		  <div class="row" ng-animate="'animate'" ng-repeat='project in index.projects | filter:search'>
+		  	<button ng-show='project.angular' class="btn btn-default" data-toggle="modal" data-target="#myModal">
+					  {{project.name}}
+					</button>
 		  	<div ng-hide='project.projectType != projectType' class='box'>
 			    <button class='btn btn-default' ng-hide='project.angular'>
 			    	<a href="projects/{{project.id}}">{{ project.name }}</a>
@@ -38,9 +41,7 @@
 		</div>
 	</div>
 </div>
-<button ng-show='project.angular' class="btn btn-default" data-toggle="modal" data-target="#myModal">
-					  {{project.name}}
-					</button>	
+	
   <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				  <div class="modal-dialog">
