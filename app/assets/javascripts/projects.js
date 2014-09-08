@@ -88,113 +88,113 @@
 
   }]);
 
-  app.directive('focus',
-    function($timeout) {
-      return {
-        scope : {
-         trigger : '@focus'
-         },
-        link : function(scope, element) {
-          scope.$watch('trigger', function(value) {
-            if (value === "true") {
-              $timeout(function() { 
-                element[0].focus();
-              });
-            }
-          });
-        }
-      };
-    }
-  ); 
+  // app.directive('focus',
+  //   function($timeout) {
+  //     return {
+  //       scope : {
+  //        trigger : '@focus'
+  //        },
+  //       link : function(scope, element) {
+  //         scope.$watch('trigger', function(value) {
+  //           if (value === "true") {
+  //             $timeout(function() { 
+  //               element[0].focus();
+  //             });
+  //           }
+  //         });
+  //       }
+  //     };
+  //   }
+  // ); 
 
-  app.directive('calculator', function() {
-    return {
-      restrict: 'E',
-      templateUrl: '/projects/calculator.html',
-      controller: function Calc($scope) {
+  // app.directive('calculator', function() {
+  //   return {
+  //     restrict: 'E',
+  //     templateUrl: '/projects/calculator.html',
+  //     controller: function Calc($scope) {
 
-        $scope.initialize = function() {
-          $scope.output = 0;
-              $scope.newNumber = true;
-              $scope.pendingOperation = null;
-              $scope.RunningTotal = null;
-              $scope.pendingValue = null;
-              $scope.lastOperation = null;
-        }
-          $scope.initialize();
+  //       $scope.initialize = function() {
+  //         $scope.output = 0;
+  //             $scope.newNumber = true;
+  //             $scope.pendingOperation = null;
+  //             $scope.RunningTotal = null;
+  //             $scope.pendingValue = null;
+  //             $scope.lastOperation = null;
+  //       }
+  //         $scope.initialize();
 
-          $scope.updateOutput = function(value) {
-             if($scope.output == 0 || $scope.newNumber ) {
-                $scope.output = value;
-                $scope.newNumber = false;
-             } else {
-                $scope.output += String(value);
-             }
-             $scope.pendingValue = $scope.output*1;
-          }
+  //         $scope.updateOutput = function(value) {
+  //            if($scope.output == 0 || $scope.newNumber ) {
+  //               $scope.output = value;
+  //               $scope.newNumber = false;
+  //            } else {
+  //               $scope.output += String(value);
+  //            }
+  //            $scope.pendingValue = $scope.output*1;
+  //         }
 
-          $scope.add = function () {
-              $scope.performOperation();
-              $scope.pendingOperation = '+';
+  //         $scope.add = function () {
+  //             $scope.performOperation();
+  //             $scope.pendingOperation = '+';
               
-          }
+  //         }
 
-          $scope.subtract = function () {
-            $scope.performOperation();
-            $scope.pendingOperation = '-';
+  //         $scope.subtract = function () {
+  //           $scope.performOperation();
+  //           $scope.pendingOperation = '-';
             
-          }
+  //         }
 
-          $scope.multiply = function() {
-            $scope.performOperation();
-            $scope.pendingOperation = '*';
-          }
+  //         $scope.multiply = function() {
+  //           $scope.performOperation();
+  //           $scope.pendingOperation = '*';
+  //         }
 
-          $scope.calculate = function() {
-              $scope.performOperation();  
-          }
+  //         $scope.calculate = function() {
+  //             $scope.performOperation();  
+  //         }
 
-          $scope.devide = function() {
-            $scope.performOperation();
-            $scope.pendingOperation = '/';
+  //         $scope.devide = function() {
+  //           $scope.performOperation();
+  //           $scope.pendingOperation = '/';
           
-          }
+  //         }
 
-          $scope.clear = function() {
-             $scope.initialize();
-          }
+  //         $scope.clear = function() {
+  //            $scope.initialize();
+  //         }
 
-          $scope.performOperation = function() {
+  //         $scope.performOperation = function() {
 
-            if($scope.pendingValue) {
-              switch($scope.pendingOperation) {
-                case '+':
-                    $scope.runningTotal += $scope.pendingValue;
-                    break;
-                case '-': 
-                    $scope.runningTotal -= $scope.pendingValue;
-                    break; 
-                case '*':
-                    $scope.runningTotal *= $scope.pendingValue;
-                    break;  
-                case '/':
-                    $scope.runningTotal /= $scope.pendingValue;
-                    break;     
-                default:
-                    $scope.runningTotal = $scope.pendingValue;    
+  //           if($scope.pendingValue) {
+  //             switch($scope.pendingOperation) {
+  //               case '+':
+  //                   $scope.runningTotal += $scope.pendingValue;
+  //                   break;
+  //               case '-': 
+  //                   $scope.runningTotal -= $scope.pendingValue;
+  //                   break; 
+  //               case '*':
+  //                   $scope.runningTotal *= $scope.pendingValue;
+  //                   break;  
+  //               case '/':
+  //                   $scope.runningTotal /= $scope.pendingValue;
+  //                   break;     
+  //               default:
+  //                   $scope.runningTotal = $scope.pendingValue;    
                 
-              }
-            } 
+  //             }
+  //           } 
 
-            $scope.output = String($scope.runningTotal);
-            $scope.newNumber = true;
-            $scope.pendingValue = null;
+  //           $scope.output = String($scope.runningTotal);
+  //           $scope.newNumber = true;
+  //           $scope.pendingValue = null;
        
-          }
+  //         }
 
-      }
-    };
-  });
+  //     }
+  //   };
+  // });
 
     
   //i used some jquery just for effect - need to figure out a way to do this in angular
