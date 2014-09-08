@@ -42,43 +42,43 @@
 	</div>
 </div>
 	
-  <!-- Modal -->
+  <!-- Calulator Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				  <div class="modal-dialog">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				        <h4 class="modal-title" id="myModalLabel">Calculator</h4>
-				      </div>
-				      <div ng-controller='Calc' class="modal-body">
-				      	<div class='calcButtons'>
-									<p class='calcOutput'>{{pendingOperation || ""}}<span class='pull-right'>{{output}}</span></p>
-									<p>
-										<button ng-click='updateOutput(1)'>1</button>
-										<button ng-click='updateOutput(2)'>2</button>
-										<button ng-click='updateOutput(3)'>3</button>
-										<button ng-click='add()'>+</button>
-										<button ng-click='subtract()'>-</button>
-									</p>
-									<p>
-									  <button ng-click='updateOutput(4)'>4</button>
-									  <button ng-click='updateOutput(5)'>5</button>
-									  <button ng-click='updateOutput(6)'>6</button>
-									  <button ng-click='multiply()'>*</button>
-										<button ng-click='devide()'>/</button>
-									</p>
-									<p>
-									  <button ng-click='updateOutput(7)'>7</button>
-									  <button ng-click='updateOutput(8)'>8</button>
-									  <button ng-click='updateOutput(9)'>9</button>
-									  <button ng-click='calculate()'>=</button>
-									  <button ng-click='clear()'>Clear</button>
-									</p>
-								</div>
-						  </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				      </div>
-				    </div>
-				  </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Calculator</h4>
+      </div>
+      <div ng-controller='Calc' class="modal-body">
+      	<div class='calcButtons'>
+					<p class='calcOutput'>{{pendingOperation}}<span class='pull-right'>{{output}}</span></p>
+					<p>
+						<button ng-click='updateOutput(1)'>1</button>
+						<button ng-click='updateOutput(2)'>2</button>
+						<button ng-click='updateOutput(3)'>3</button>
+						<button ng-click='add()'>+</button>
+						<button ng-click='subtract()'>-</button>
+					</p>
+					<p>
+					  <button ng-click='updateOutput(4)'>4</button>
+					  <button ng-click='updateOutput(5)'>5</button>
+					  <button ng-click='updateOutput(6)'>6</button>
+					  <button ng-click='multiply()'>*</button>
+						<button ng-click='devide()'>/</button>
+					</p>
+					<p>
+					  <button ng-click='updateOutput(7)'>7</button>
+					  <button ng-click='updateOutput(8)'>8</button>
+					  <button ng-click='updateOutput(9)'>9</button>
+					  <button ng-click='calculate()'>=</button>
+					  <button ng-click='clear()'>Clear</button>
+					</p>
 				</div>
+		  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
