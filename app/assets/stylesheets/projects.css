@@ -42,7 +42,7 @@
 
 .calcButtons button{
 		background-color: white;
-		width: 60px;
+		width: 55px;
 		height: 50px;
 }
 
@@ -52,8 +52,8 @@
 	padding: 15px;
 	font-size: 2em;
 	position: relative;
-	right: 5px;
-	height: 40px;
+	right: 15px;
+	height: 60px;
 	width: 325px;
 
 }

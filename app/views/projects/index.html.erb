@@ -9,7 +9,7 @@
         <% end %>
 		  <div ng-repeat='user in app.users | limitTo:5 | orderBy:"time":reverse'>
 		  	<div ng-show='{{ user.time }}'>
-		    <p>{{ user.name }}<span class='pull-right'>{{ user.time }}</span></p>
+		    	<p>{{ user.name }}<span class='pull-right'>{{ user.time }}</span></p>
 		    </div>
 		  </div>
 		</div>
@@ -18,7 +18,7 @@
 	<div class='col-md-8'>
 		<div ng-controller="ProjectsController as index">
 			<h1 class="page-header">Projects</h1>
-			<p>Project Search<input type="text" ng-model="search" focus="true" class='form-control'></p>
+			<p>Project Search<input type="text" ng-model="search" focus="true" class='form-control' ng-focus></p>
 				<div class='pull-right'>
 					<button ng-click='show("angular")' class='btn btn-default'>Angular</button>
 					<button ng-click='show("finished")' class='btn btn-default'>Finished</button>

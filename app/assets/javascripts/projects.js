@@ -1,6 +1,6 @@
 
 
-  var app = angular.module('angularResume', ['ui.bootstrap']);
+  var app = angular.module('angularResume', ['ngMessages']);
 
   //all users who sign up for the site 
   app.controller('UsersController', ['$http', function($http) {
@@ -52,10 +52,9 @@
           $scope.projectType = 'angular';
           break;
         default: 
-          alert('hey');      
+          $scope.projectType = '';     
       }
-    }
-    
+    } 
   }]);
 
   //call data on specifc project I've created on the site
